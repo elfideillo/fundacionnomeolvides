@@ -1,0 +1,105 @@
+---
+// Banner especial 8 de Marzo - Día Internacional de la Mujer
+---
+
+<div id="banner-8m" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+  <div class="relative bg-gradient-to-br from-[#7C5CBF] via-[#9B7DD4] to-[#E8839B] rounded-3xl shadow-2xl max-w-2xl mx-4 p-8 md:p-10 transform scale-95 transition-transform duration-300" id="banner-content">
+    <!-- Botón cerrar -->
+    <button
+      id="close-banner"
+      class="absolute top-4 right-4 text-white/80 hover:text-white transition-colors"
+      aria-label="Cerrar banner"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <!-- Decoración 8M -->
+    <div class="absolute -top-4 -left-4 w-16 h-16 bg-white/20 rounded-full blur-xl"></div>
+    <div class="absolute -bottom-4 -right-4 w-20 h-20 bg-white/10 rounded-full blur-xl"></div>
+
+    <!-- Contenido -->
+    <div class="text-center text-white relative z-10">
+      <span class="inline-block px-4 py-1 bg-white/20 rounded-full text-sm font-medium mb-4">
+        8 de Marzo
+      </span>
+
+      <h2 class="font-heading text-2xl md:text-3xl font-bold mb-6">
+        Día Internacional de la Mujer
+      </h2>
+
+      <div class="text-white/90 text-sm md:text-base leading-relaxed space-y-4 text-left max-h-[50vh] overflow-y-auto pr-2">
+        <p>
+          Hoy, en este 8 de marzo, Día Internacional de la Mujer, quiero dedicar unas palabras muy especiales a cada una de ustedes, mujeres valientes que forman parte de esta hermosa fundación.
+        </p>
+        <p>
+          Me siento profundamente agradecida de caminar junto a ustedes en esta misión de ayudar, apoyar y levantar a otras mujeres que lo necesitan. Cada una aporta su corazón, su tiempo y su fuerza para construir algo lleno de amor, esperanza y solidaridad.
+        </p>
+        <p class="font-medium">
+          Que este día nos recuerde siempre la fuerza, la dignidad y el valor que tenemos como mujeres.
+        </p>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-white/20 flex items-center justify-center gap-4">
+        <img
+          src="/images/OLVIDO.jpeg"
+          alt="Olvido Rivera L."
+          class="w-16 h-16 rounded-full object-cover border-2 border-white/30 shadow-lg"
+        />
+        <div class="text-left">
+          <p class="font-heading text-sm italic text-white/80">Con mucho cariño y admiración,</p>
+          <p class="font-heading text-lg font-semibold">Olvido Rivera L.</p>
+          <p class="text-white/70 text-xs">Presidenta</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    const banner = document.getElementById('banner-8m');
+    const bannerContent = document.getElementById('banner-content');
+    const closeBtn = document.getElementById('close-banner');
+
+    // Verificar si ya se cerró hoy (comentado para desarrollo)
+    const today = new Date().toDateString();
+    // const closedDate = localStorage.getItem('banner8m-closed');
+
+    if (true) { // Siempre mostrar en desarrollo
+      // Mostrar banner con animación
+      setTimeout(() => {
+        banner.classList.remove('opacity-0', 'pointer-events-none');
+        banner.classList.add('opacity-100');
+        bannerContent.classList.remove('scale-95');
+        bannerContent.classList.add('scale-100');
+      }, 500);
+    }
+
+    // Cerrar banner
+    function closeBanner() {
+      banner.classList.add('opacity-0', 'pointer-events-none');
+      banner.classList.remove('opacity-100');
+      bannerContent.classList.add('scale-95');
+      bannerContent.classList.remove('scale-100');
+      localStorage.setItem('banner8m-closed', today);
+    }
+
+    closeBtn.addEventListener('click', closeBanner);
+
+    // Cerrar al hacer clic fuera
+    banner.addEventListener('click', function(e) {
+      if (e.target === banner) {
+        closeBanner();
+      }
+    });
+
+    // Cerrar con Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && !banner.classList.contains('pointer-events-none')) {
+        closeBanner();
+      }
+    });
+  });
+</script>

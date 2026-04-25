@@ -1,0 +1,114 @@
+---
+const navLinks = [
+  { href: '#inicio', label: 'Inicio' },
+  { href: '#quienes-somos', label: 'Quiénes Somos' },
+  { href: '#que-hacemos', label: 'Qué Hacemos' },
+  { href: '#a-quienes-acompanamos', label: 'A Quiénes Acompañamos' },
+  { href: '#aporte-voluntario', label: 'Aporte Voluntario' },
+  { href: '/ficha-social', label: 'Ficha Social' },
+];
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-md transition-all duration-300" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 lg:h-20">
+      <!-- Logo -->
+      <a href="#inicio" class="flex items-center space-x-2 group">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#7C5CBF] to-[#E8839B] flex items-center justify-center">
+          <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        </div>
+        <span class="font-heading font-semibold text-lg text-[#7C5CBF] group-hover:text-[#5A3D9E] transition-colors">
+          No Me Olvides
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden lg:flex items-center space-x-1">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="px-4 py-2 text-sm font-medium text-gray-600 hover:text-[#7C5CBF] transition-colors rounded-full hover:bg-[#7C5CBF]/5"
+          >
+            {link.label}
+          </a>
+        ))}
+        <a
+          href="#contactanos"
+          class="ml-4 px-6 py-2.5 bg-gradient-to-r from-[#7C5CBF] to-[#5A3D9E] text-white font-medium text-sm rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105"
+        >
+          Contáctanos
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        type="button"
+        class="lg:hidden p-2 rounded-full text-gray-600 hover:text-[#7C5CBF] hover:bg-[#7C5CBF]/5 transition-colors"
+        id="mobile-menu-button"
+        aria-label="Abrir menú"
+      >
+        <svg class="w-6 h-6 menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg class="w-6 h-6 close-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="lg:hidden hidden" id="mobile-menu">
+    <div class="px-4 pt-2 pb-6 space-y-1 bg-white border-t border-gray-100">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="block px-4 py-3 text-base font-medium text-gray-600 hover:text-[#7C5CBF] hover:bg-[#7C5CBF]/5 rounded-xl transition-colors mobile-link"
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        href="#contactanos"
+        class="block mt-4 px-4 py-3 bg-gradient-to-r from-[#7C5CBF] to-[#5A3D9E] text-white font-medium text-center rounded-xl mobile-link"
+      >
+        Contáctanos
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script is:inline>
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = menuButton.querySelector('.menu-icon');
+  const closeIcon = menuButton.querySelector('.close-icon');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  function toggleMenu() {
+    mobileMenu.classList.toggle('hidden');
+    menuIcon.classList.toggle('hidden');
+    closeIcon.classList.toggle('hidden');
+  }
+
+  menuButton.addEventListener('click', toggleMenu);
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      menuIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+    });
+  });
+
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add('shadow-lg');
+    } else {
+      navbar.classList.remove('shadow-lg');
+    }
+  });
+</script>

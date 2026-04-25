@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Ficha Social - Fundación No Me Olvides" description="Complete nuestra ficha social para que podamos brindarle el apoyo más adecuado. Toda la información es confidencial.">
+  <Navbar />
+  <main class="pt-16 lg:pt-20">
+    <!-- Header Section -->
+    <section class="bg-gradient-to-br from-[#7C5CBF]/10 via-[#E8839B]/5 to-white py-3">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="font-heading text-xl md:text-2xl font-bold text-[#7C5CBF]">
+          Ficha Social
+        </h1>
+        <p class="text-sm text-gray-600">
+          Toda la información es <strong class="text-[#7C5CBF]">confidencial</strong>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="py-2">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSdi8FkiyCCayXUEoNOlor9FvETxmHjnkw68e_hpICiH3epIRw/viewform?embedded=true"
+            width="100%"
+            height="3500"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            class="w-full"
+            title="Ficha Social - Fundación No Me Olvides"
+            loading="lazy"
+          >
+            Cargando formulario...
+          </iframe>
+        </div>
+
+        <!-- Alternative Link -->
+        <div class="mt-8 text-center">
+          <p class="text-gray-500 text-sm mb-2">
+            ¿Tiene problemas para ver el formulario?
+          </p>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdi8FkiyCCayXUEoNOlor9FvETxmHjnkw68e_hpICiH3epIRw/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center text-[#7C5CBF] hover:text-[#5A3D9E] font-medium transition-colors"
+          >
+            Abrir formulario en nueva pestaña
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Back to Home -->
+    <section class="pb-12 lg:pb-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <a
+          href="/"
+          class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#7C5CBF] to-[#5A3D9E] text-white font-medium rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105"
+        >
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+          </svg>
+          Volver al Inicio
+        </a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

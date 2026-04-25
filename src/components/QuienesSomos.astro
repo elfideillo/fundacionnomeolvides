@@ -1,0 +1,138 @@
+---
+const directiva = [
+  {
+    nombre: 'Olvido Rivera L.',
+    cargo: 'Presidenta',
+    descripcion: 'Empresaria con amplia trayectoria en comercio, transporte y emprendimientos familiares. Fundadora y presidenta de la fundación, con más de 60 años de experiencia en gestión empresarial y apoyo social a mujeres.',
+    imagen: '/images/OLVIDO.jpeg',
+    email: 'orivera@fundacionnomeolvides.cl',
+  },
+  {
+    nombre: 'Natalia Pontiggia C.',
+    cargo: 'Bienestar',
+    descripcion: 'Ingeniero en Administración mención Finanzas con sólida trayectoria en gestión comercial y administrativa. Experta en optimización de recursos, análisis financiero y mejora de procesos.',
+    imagen: '/images/NATALIA.jpeg',
+    email: 'npontiggia@fundacionnomeolvides.cl',
+  },
+  {
+    nombre: 'Isadora Ovalle D.',
+    cargo: 'Salud Mental',
+    descripcion: 'Psicóloga clínica especializada en terapia EMDR. Ha trabajado con infancia, adolescentes y adultos. Experta en estrés laboral, ansiedad, depresión y trauma.',
+    imagen: '/images/ISADORA.jpeg',
+    email: 'iovalle@fundacionnomeolvides.cl',
+  },
+  {
+    nombre: 'Jessica Rodríguez M.',
+    cargo: 'Comunicaciones',
+    descripcion: 'Periodista, licenciada en Comunicación Social, máster en Comunicación Política y Marketing. Periodista del Congreso Nacional y conductora de radio.',
+    imagen: '/images/JESSICA.jpeg',
+    email: 'jrodriguez@fundacionnomeolvides.cl',
+  },
+  {
+    nombre: 'Isabella Vega B.',
+    cargo: 'Secretaria',
+    descripcion: 'Estudiante de Ingeniería Civil y Bioingeniería. Comprometida con iniciativas de apoyo social y comunitario, especialmente en educación y empoderamiento de mujeres.',
+    imagen: '/images/ISABELLA.jpeg',
+    email: 'ivega@fundacionnomeolvides.cl',
+  },
+  {
+    nombre: 'Carolina Zurita H.',
+    cargo: 'Tecnología',
+    descripcion: 'Magíster en Ingeniería de Sistemas Empresariales. Responsable de la parte tecnológica de la fundación.',
+    imagen: '/images/CAROLINA.jpeg',
+    email: 'czurita@fundacionnomeolvides.cl',
+  },
+];
+---
+
+<section id="quienes-somos" class="py-20 lg:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-20">
+      <!-- Images -->
+      <div class="order-2 lg:order-1" data-aos="fade-right">
+        <div class="relative max-w-md mx-auto">
+          <!-- Main image -->
+          <img
+            src="/images/01.jpeg"
+            alt="Mujeres trabajando en comunidad"
+            class="w-full rounded-3xl shadow-2xl object-cover aspect-[4/3]"
+          />
+          <!-- Secondary image overlapping -->
+          <img
+            src="/images/02.jpeg"
+            alt="Ilustración de mujeres en comunidad"
+            class="absolute -bottom-8 -right-8 w-40 h-40 rounded-full shadow-xl object-cover border-4 border-white hidden sm:block"
+          />
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="order-1 lg:order-2" data-aos="fade-left">
+        <span class="inline-block px-4 py-2 bg-[#7C5CBF]/10 text-[#7C5CBF] rounded-full text-sm font-medium mb-4">
+          Quiénes Somos
+        </span>
+
+        <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1F2937] mb-6">
+          Comprometidas con el
+          <span class="text-[#7C5CBF]">acompañamiento</span>
+        </h2>
+
+        <p class="text-[#6B7280] text-lg leading-relaxed mb-8">
+          Somos una comunidad dedicada a sostener y reconstruir junto a mujeres que han atravesado situaciones de violencia con enfoque de género. Creemos que la sanación es posible a través de la escucha empática y el respeto absoluto por las decisiones individuales, transformando el cuidado colectivo en un camino hacia la libertad.
+        </p>
+
+        <!-- Highlighted quote -->
+        <div class="relative pl-6 border-l-4 border-[#E8839B]">
+          <p class="font-heading text-xl lg:text-2xl text-[#1F2937] italic">
+            "Nuestro nombre nace de una convicción: ninguna historia debe ser invisibilizada, ninguna mujer olvidada."
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Directiva -->
+    <div class="mt-16" data-aos="fade-up">
+      <h3 class="font-heading text-2xl lg:text-3xl font-bold text-[#1F2937] text-center mb-12">
+        Nuestro Equipo
+      </h3>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {directiva.map((persona, index) => (
+          <div
+            class="bg-[#FFF5F0] rounded-3xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+            data-aos="fade-up"
+            data-aos-delay={index * 100}
+          >
+            <!-- Photo -->
+            <div class="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden shadow-lg">
+              <img
+                src={persona.imagen}
+                alt={`Foto de ${persona.nombre}`}
+                class="w-full h-full object-cover object-center"
+              />
+            </div>
+
+            <h4 class="font-heading text-xl font-semibold text-[#1F2937] mb-1">
+              {persona.nombre}
+            </h4>
+            <p class="text-[#7C5CBF] font-medium text-sm mb-2">
+              {persona.cargo}
+            </p>
+            <a
+              href={`mailto:${persona.email}`}
+              class="inline-flex items-center gap-1 text-[#E8839B] hover:text-[#7C5CBF] text-xs font-medium mb-4 transition-colors"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              {persona.email}
+            </a>
+            <p class="text-[#6B7280] text-sm leading-relaxed">
+              {persona.descripcion}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

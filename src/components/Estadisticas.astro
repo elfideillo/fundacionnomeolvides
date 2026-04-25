@@ -1,0 +1,49 @@
+---
+const stats = [
+  {
+    numero: '500+',
+    label: 'Mujeres Acompañadas',
+    icon: '❤️',
+  },
+  {
+    numero: '10+',
+    label: 'Años de Experiencia',
+    icon: '⭐',
+  },
+  {
+    numero: '50+',
+    label: 'Voluntarias Activas',
+    icon: '🤝',
+  },
+  {
+    numero: '100%',
+    label: 'Compromiso',
+    icon: '💪',
+  },
+];
+---
+
+<section class="py-16 bg-gradient-to-r from-[#7C5CBF] via-[#E8839B] to-[#F4A261]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="font-heading text-2xl sm:text-3xl font-bold text-white text-center mb-10" data-aos="fade-up">
+      Nuestra experiencia
+    </h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      {stats.map((stat, index) => (
+        <div
+          class="text-center text-white"
+          data-aos="fade-up"
+          data-aos-delay={index * 100}
+        >
+          <div class="text-4xl mb-2">{stat.icon}</div>
+          <div class="font-heading text-4xl lg:text-5xl font-bold mb-2">
+            {stat.numero}
+          </div>
+          <div class="text-white/90 text-sm lg:text-base font-medium">
+            {stat.label}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

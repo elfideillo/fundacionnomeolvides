@@ -1,0 +1,110 @@
+---
+---
+
+<section id="inicio" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background images with crossfade effect -->
+  <div class="absolute inset-0 z-0">
+    <!-- First background image -->
+    <div class="hero-bg-1 absolute inset-0">
+      <img
+        src="/images/fondo.png"
+        alt=""
+        class="w-full h-full object-cover scale-105"
+      />
+    </div>
+    <!-- Second background image -->
+    <div class="hero-bg-2 absolute inset-0 opacity-0">
+      <img
+        src="/images/fondo2.png"
+        alt=""
+        class="w-full h-full object-cover scale-105"
+      />
+    </div>
+    <!-- Dark overlay for better text readability -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/25 to-black/40"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
+    <h1
+      class="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
+      data-aos="fade-up"
+    >
+      Acompañamos a mujeres que han sobrevivido a la violencia
+    </h1>
+
+    <p
+      class="text-xl sm:text-2xl text-white/90 leading-relaxed mb-10 max-w-2xl mx-auto"
+      data-aos="fade-up"
+      data-aos-delay="100"
+    >
+      Ninguna mujer debe enfrentar la violencia en silencio ni en soledad
+    </p>
+
+    <div
+      class="flex flex-col sm:flex-row gap-4 justify-center"
+      data-aos="fade-up"
+      data-aos-delay="200"
+    >
+      <a
+        href="#aporte-voluntario"
+        class="px-10 py-4 bg-[#E8839B] hover:bg-[#d6728a] text-white font-semibold text-lg rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl"
+      >
+        Donar ahora
+      </a>
+      <a
+        href="#contactanos"
+        class="px-10 py-4 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-semibold text-lg rounded-full border-2 border-white/50 hover:border-white transition-all duration-300"
+      >
+        Pide acompañamiento
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-10">
+    <a href="#quienes-somos" class="flex flex-col items-center text-white/80 hover:text-white transition-colors">
+      <span class="text-sm mb-2">Nuestra experiencia nos otorga</span>
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
+<style>
+  /* Hero background crossfade animation */
+  .hero-bg-1, .hero-bg-2 {
+    transition: opacity 2s ease-in-out;
+  }
+
+  @keyframes heroFade1 {
+    0%, 45% { opacity: 1; }
+    50%, 95% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes heroFade2 {
+    0%, 45% { opacity: 0; }
+    50%, 95% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  .hero-bg-1 {
+    animation: heroFade1 10s ease-in-out infinite;
+  }
+
+  .hero-bg-2 {
+    animation: heroFade2 10s ease-in-out infinite;
+  }
+
+  /* Subtle zoom effect on images */
+  .hero-bg-1 img, .hero-bg-2 img {
+    animation: subtleZoom 20s ease-in-out infinite alternate;
+  }
+
+  @keyframes subtleZoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+  }
+</style>
